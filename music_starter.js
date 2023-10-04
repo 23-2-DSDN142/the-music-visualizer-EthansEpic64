@@ -9,14 +9,21 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    let bar_spacing = height / 10;
    let bar_height = width / 12;
    let bar_pos_x = width / 2;
-   let ellipsemap = map(bass, 0, 100, 200, 400);
+   let ellipsemapdrum = map(drum, 0, 100, 100, 200);
+   let ellipsemapbass = map(bass, 0, 100, 100, 200);
+   let ellipsemapvocal = map(vocal, 0, 100, 100, 200);
+   let ellipsemapother = map(other, 0,100, 100,200);
    
    fill(255);
-   ellipse (width/2, height/3, ellipsemap,ellipsemap);
+   ellipse (400, 100, ellipsemapdrum,ellipsemapdrum);
+   ellipse (400, 600, ellipsemapbass,ellipsemapbass);
+   ellipse (100, 100, ellipsemapvocal,ellipsemapvocal);
+   ellipse (100, 600, ellipsemapother,ellipsemapother);
  
    // display "words"
    fill(0);
    textAlign(CENTER);
    textSize(vocal);
    text(words, width/2, height/3);
+   
 }
