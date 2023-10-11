@@ -13,17 +13,22 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    let ellipsemapbass = map(bass, 0, 100, 100, 200);
    let ellipsemapvocal = map(vocal, 0, 100, 100, 200);
    let ellipsemapother = map(other, 0,100, 100,200);
+   let cloudlight = color(245);
+   let clouddark = color(55, 64, 74);
+   let cloudlerp = map(vocal, 0, 100, 0, 1);
+   let cloudColour = lerpColor(cloudlight, clouddark, cloudlerp)
    
-   fill(255);
-   ellipse (400, 100, ellipsemapdrum,ellipsemapdrum);
-   ellipse (400, 600, ellipsemapbass,ellipsemapbass);
-   ellipse (100, 100, ellipsemapvocal,ellipsemapvocal);
-   ellipse (100, 600, ellipsemapother,ellipsemapother);
- 
-   // display "words"
-   fill(0);
-   textAlign(CENTER);
-   textSize(vocal);
-   text(words, width/2, height/3);
+   fill(cloudColour);
+   stroke(0);
+   ellipse (1150, 0, ellipsemapvocal+200,ellipsemapvocal+100); //these ellipses are the clouds
+   ellipse (700, 12, ellipsemapvocal+320,ellipsemapvocal+50);
+   ellipse (100, 0, ellipsemapvocal+300,ellipsemapvocal+30);
+   ellipse (400, 0, ellipsemapvocal+200,ellipsemapvocal+115);
+   ellipse (600, 20, ellipsemapvocal+240,ellipsemapvocal+60);
+   ellipse (980, 8, ellipsemapvocal+210,ellipsemapvocal+60);
+   ellipse (250, 30, ellipsemapvocal+200,ellipsemapvocal+50);
+   noStroke();
+   rect (700,20,1500,45); //this just partially covers up the stroke of the clouds to make them look less like circles
+   
    
 }
