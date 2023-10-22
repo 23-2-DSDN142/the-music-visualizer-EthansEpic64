@@ -1,7 +1,7 @@
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(20)
+  background(240)
   textFont('Helvetica'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(13);
@@ -17,6 +17,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    let clouddark = color(55, 64, 74);
    let cloudlerp = map(vocal, 0, 100, 0, 1);
    let cloudColour = lerpColor(cloudlight, clouddark, cloudlerp)
+
+   fill(188, 0, 45)
+   noStroke();
+   ellipse (644,360, ellipsemapdrum+200, ellipsemapdrum+200);
    
    fill(cloudColour);
    stroke(0);
