@@ -1,11 +1,19 @@
-//let firstRun = true
-//let fujiimg;
+let firstRun = true
+let blossom1;
+let blossom2;
+let mtfuji;
+let river;
+let fish;
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  //if(firstRun){
-    //fujiimg = loadImage('mtfuji.png');
-    //firstRun = false;
-  //}
+  if(firstRun){
+    blossom1 = loadImage('blossomskeleton.png');
+    blossom2 = loadImage('blossomflower.png');
+    mtfuji = loadImage('mtfuji.png');
+    river = loadImage('river.png');
+    fish = loadImage('fish.png');
+    firstRun = false;
+  }
   background(240)
   textFont('Helvetica'); // please use CSS safe fonts
   rectMode(CENTER)
@@ -25,11 +33,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
    fill(188, 0, 45)
    noStroke();
-   ellipse (644,360, ellipsemapdrum+200, ellipsemapdrum+200);
-   if(bass >83){
+   ellipse (640,360, ellipsemapdrum+200, ellipsemapdrum+200);
+   
+  if(bass >83){
     noFill();
     stroke(255, 255, 79);
-    strokeWeight(20);
+    strokeWeight(8);
+    strokeCap(SQUARE);
     beginShape();
     vertex(200, 30);
     vertex(220, 130);
@@ -41,8 +51,41 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     vertex(280, 500);
     vertex(349, 600);
     endShape();
-   }
+  }
+   
+  
+   image(mtfuji, 85,140);
+   mtfuji.resize(1160,0);
 
+   noStroke();
+   fill(51, 97, 44);
+   rect (640,675,1280,300);
+
+
+   image(river, 320,525);
+   river.resize(0,210);
+
+  if(bass >83){
+   noFill();
+   stroke(255, 255, 79);
+   strokeWeight(15);
+   beginShape();
+   vertex(1000, 30);
+   vertex(1180, 150);
+   vertex(1100, 200);
+   vertex(1150, 240);
+   vertex(1050, 300);
+   vertex(1100, 380);
+   vertex(1000, 430);
+   vertex(1060, 500);
+   vertex(960, 550);
+   vertex(1040, 610);
+   vertex(935, 670);
+   endShape();
+
+   image(fish, 875,640);
+   fish.resize(80,0);
+  }
    
    fill(cloudColour);
    stroke(0);
@@ -56,6 +99,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    ellipse (250, 30, ellipsemapvocal+200,ellipsemapvocal+50);
    noStroke();
    rect (700,20,1500,45); //this just partially covers up the stroke of the clouds to make them look less like circles
-   
-   //image(fujiimg, 800,800);
+
+   if(other <72){
+    image(blossom1, -30,80);
+    blossom1.resize(0,620);
+   } else{
+    image(blossom2, -30,80);
+    blossom2.resize(0,620);
+   }
+  
 }
